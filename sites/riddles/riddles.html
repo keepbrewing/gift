@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Riddles for Lopa</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: table;
+    background-color: #333;
+    color: yellow;
+}
+section, #reward {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+i{
+  padding: 15px;
+}
+i:hover, button:hover{
+  color: gray;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 100%);
+  }
+  100%{
+    opacity: 0;
+    transform: none;
+  }
+}
+
+h1, i, input, button{
+  animation-duration: 1s;
+    transition-timing-function: ease-in;
+    animation-fill-mode: both;
+    animation-name: fadeInRight;
+}
+
+input{
+  padding : 10px;
+  border: 3px solid black;
+}
+
+button{
+  margin: 15px;
+  padding: 10px;
+}
+
+.toast-body, .modal{
+  color: #333;
+}
+  </style>
+</head>
+<body>
+  <section id="main">
+    <h1 class="display-3">Do you like <kbd style="background-color:yellow; color: #333">riddles</kbd>?</h1>
+    <h1 class="display-3">Regardless, I am gonna ask you some muhahahah!</h1>
+    <br>
+    <i class="fa fa-arrow-circle-right" style="font-size:66px" onclick="riddle1();"></i>
+  </section>
+  <div class="toast">
+    <div class="toast-header">
+      <strong class="me-auto">Hint</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+    </div>
+    <div class="toast-body">
+      <p>Select text of the whole website. You can do the same using Ctrl + A or mouse.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">You found your first hidden quality!</h4>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <img src="rid1ans.gif" class="mx-auto d-block img-fluid"/>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="mod();">Next question</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="cheesyModal1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Btw...</h4>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          Do you have a name?
+          <br>
+          Or shall I call you bestie?
+          <br>
+          &#128538;
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="riddle2();">Next question!</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast2">
+    <div class="toast-header">
+      <strong class="me-auto">Hint</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+    </div>
+    <div class="toast-body">
+      <p>Swipe right by clicking on the arrow.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="myModal2">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Too easy, this one. But you are quite empathetic!</h4>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <img src="rid1ans.gif" class="mx-auto d-block img-fluid"/>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="mod2();">Next question</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="cheesyModal2">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Listen...</h4>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          Are we a circle?
+          <br>
+          Because our friendship would never end.
+          <br>
+          &#128538;
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="riddle3();">Next question!</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
+
+  <div class="toast" id="toast3">
+    <div class="toast-header">
+      <strong class="me-auto">Hint</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+    </div>
+    <div class="toast-body">
+      <p>The answer is in the question. Observe how the other answers have been and you shall find the way.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="myModal3">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Your observation skills amaze me.</h4>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <img src="rid1ans.gif" class="mx-auto d-block img-fluid"/>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="mod3();">Get prize</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="cheesyModal3">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Last...</h4>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          Just call me a masseuse...
+          <br>
+          Because I got your back!
+          <br>
+          &#128538;
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="reward();">Get prize!</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+<script>
+  var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+  var toastList = toastElList.map(function(toastEl) {
+    return new bootstrap.Toast(toastEl)
+  })
+  function riddle1(){
+    document.body.removeChild(main);
+    const ridBod1 = document.createElement("section");
+    ridBod1.id = "rid1";
+    const ques = document.createElement("h1");
+    ques.innerHTML = "Sometimes, selective text reveals more hidden things than unfiltered text.";
+    ridBod1.appendChild(ques);
+    document.body.appendChild(ridBod1);
+    const ans = document.createElement("p");
+    ans.innerHTML = "Your <b>intellect</b> though!"
+    ans.style.color = "#333";
+    ridBod1.appendChild(ans);
+    const input = document.createElement("input");
+    input.placeholder = "Enter your answer";
+    ridBod1.appendChild(input);
+    const br = document.createElement("br");
+    ridBod1.appendChild(br);
+    const submit = document.createElement("button");
+    submit.innerHTML = "Submit";
+    ridBod1.appendChild(submit);
+    const hint = document.createElement("button");
+    hint.innerHTML = "Hint";
+    ridBod1.appendChild(hint);
+    submit.onclick = function(){
+      let user = input.value;
+      if(user != ""){
+        if(user.toLowerCase().trim() == "intellect"){
+          var myModal = new bootstrap.Modal(document.getElementById("myModal"), {});
+          myModal.show();
+        }else{
+          alert("Wrong. Try again! You can also check the hint out!")
+        }
+      }else{
+        alert("Empty field!");
+      }
+    }
+    hint.onclick = function(){
+  toastList[0].show();
+    }
+  }
+
+  function mod(){
+    var myModal = bootstrap.Modal.getInstance(document.getElementById("myModal"), {});
+    myModal.hide();
+    var cheesyModal1 = new bootstrap.Modal(document.getElementById("cheesyModal1"), {});
+    cheesyModal1.show();
+  }
+
+  function mod2(){
+    var myModal = bootstrap.Modal.getInstance(document.getElementById("myModal2"), {});
+    myModal.hide();
+    var cheesyModal1 = new bootstrap.Modal(document.getElementById("cheesyModal2"), {});
+    cheesyModal1.show();
+  }
+
+  function mod3(){
+    var myModal = bootstrap.Modal.getInstance(document.getElementById("myModal3"), {});
+    myModal.hide();
+    var cheesyModal1 = new bootstrap.Modal(document.getElementById("cheesyModal3"), {});
+    cheesyModal1.show();
+  }
+
+  function reward(){
+    var myModal = bootstrap.Modal.getInstance(document.getElementById("cheesyModal3"), {});
+    myModal.hide();
+    document.body.removeChild(rid1);
+    document.body.backgroundColor = "purple";
+    const div = document.createElement("div");
+    div.id = "reward";
+    document.body.appendChild(div);
+    const h2 = document.createElement("h2");
+    h2.innerHTML = "Here's an encrypted letter for you. Hint : Caesar cipher, 7 shifts. Decode it yourself, or be smart and use a converter";
+    div.appendChild(h2);
+    const p = document.createElement("p");
+    p.innerHTML = "<kbd>Pa pz ohyk av lewylzz ovd tbjo fvb tlhu av tl. Fvb hyl hu hthgpun obthu ilpun dov'z rpuk, ltwhaolapj, huk pualsspnlua. Fvb hyl clyf vizlychua huk jvuzpklyhal vm wlvwsl, h xbhspaf clyf mld ohcl. P qbza dhuuh zhf, rllw pa bw, huk il fvby hbaoluapj zlsm iljhbzl fvb ruvd doha, fvb zopul hz fvb. Hufvul dov ruvdz fvb pz sbjrf av ruvd fvb. P ovwl fvb ruvd aopz huk P ovwl fvb buklyzahuk ovd wyljpvbz fvb hyl. Svcl fvb svhkz huk ohwwf ipyaokhf!</kbd>";
+    div.appendChild(p);
+    const button = document.createElement("button");
+    button.innerHTML = "Go back";
+    div.appendChild(button);
+    button.onclick = function(){
+      window.location = "http://127.0.0.1:5500/reveal.js-master/index.html#/4/1/1";
+    }
+    const button2 = document.createElement("button");
+    button2.innerHTML = "Converter link";
+    div.appendChild(button2);
+    button2.onclick = function(){
+      window.open( "https://cryptii.com/pipes/caesar-cipher", "_blank");
+    }
+  }
+
+  function riddle2(){
+    var myModal = bootstrap.Modal.getInstance(document.getElementById("cheesyModal1"), {});
+    myModal.hide();
+    document.body.removeChild(rid1);
+    const ridBod1 = document.createElement("section");
+    ridBod1.id = "rid1";
+    const ques = document.createElement("h1");
+    ques.innerHTML = "Does it have to be this way?";
+    ridBod1.appendChild(ques);
+    document.body.appendChild(ridBod1);
+    const arrow = document.createElement("button");
+    arrow.style.backgroundColor = "transparent";
+    arrow.style.border = "none";
+    arrow.style.color = "white";
+    arrow.innerHTML = ">>";
+    arrow.style.fontWeight = "900";
+    ridBod1.appendChild(arrow);
+    const br1 = document.createElement("br");
+    ridBod1.appendChild(br1);
+    const input = document.createElement("input");
+    input.placeholder = "Enter your answer";
+    ridBod1.appendChild(input);
+    const br = document.createElement("br");
+    ridBod1.appendChild(br);
+    const submit = document.createElement("button");
+    submit.innerHTML = "Submit";
+    ridBod1.appendChild(submit);
+    const hint = document.createElement("button");
+    hint.innerHTML = "Hint";
+    ridBod1.appendChild(hint);
+    submit.onclick = function(){
+      let user = input.value;
+      if(user != ""){
+        if(user.toLowerCase().trim() == "empathetic"){
+          var myModal = new bootstrap.Modal(document.getElementById("myModal2"), {});
+          myModal.show();
+        }else{
+          alert("Wrong. Try again! You can also check the hint out!")
+        }
+      }else{
+        alert("Empty field!");
+      }
+    }
+    hint.onclick = function(){
+      toastList[1].show();
+    }
+    arrow.onclick = function(){
+      const answer2 = document.createElement("h1");
+      answer2.innerHTML = "Being <b>empathetic</b> is a curse disguised as a virtue.";
+      ridBod1.appendChild(answer2);
+    }
+  }
+
+  function riddle3(){
+    var myModal = bootstrap.Modal.getInstance(document.getElementById("cheesyModal2"), {});
+    myModal.hide();
+    document.body.removeChild(rid1);
+    const ridBod1 = document.createElement("section");
+    ridBod1.id = "rid1";
+    const ques = document.createElement("h1");
+    ques.innerHTML = "Be an observer. Sometimes, the answer is right in front of you.";
+    ridBod1.appendChild(ques);
+    document.body.appendChild(ridBod1);
+    const br1 = document.createElement("br");
+    ridBod1.appendChild(br1);
+    const input = document.createElement("input");
+    input.placeholder = "Enter your answer";
+    ridBod1.appendChild(input);
+    const br = document.createElement("br");
+    ridBod1.appendChild(br);
+    const submit = document.createElement("button");
+    submit.innerHTML = "Submit";
+    ridBod1.appendChild(submit);
+    const hint = document.createElement("button");
+    hint.innerHTML = "Hint";
+    ridBod1.appendChild(hint);
+    submit.onclick = function(){
+      let user = input.value;
+      if(user != ""){
+        if(user.toLowerCase().trim() == "observer"){
+          var myModal = new bootstrap.Modal(document.getElementById("myModal3"), {});
+          myModal.show();
+        }else{
+          alert("Wrong. Try again! You can also check the hint out!")
+        }
+      }else{
+        alert("Empty field!");
+      }
+    }
+    hint.onclick = function(){
+      toastList[2].show();
+    }
+  }
+</script>
+</body>
+</html>

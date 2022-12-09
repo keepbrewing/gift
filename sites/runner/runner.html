@@ -1,0 +1,66 @@
+<!DOCTYPE html><html><head>
+    <title>Run Lopa, Run!</title>
+    <script src="p5.js"></script>
+    <script src="p5.dom.min.js"></script>
+    <script src="p5.sound.min.js"></script>
+<script src="./p5.play.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+    body{
+        font-family: 'Bebas Neue', cursive;
+        background-color : #46344e;
+    }
+    canvas{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin:auto;
+        padding : 10px;
+        border : 2px solid #5a5560;
+    }
+    h1{
+        text-align: center;
+        margin-top: 100px;
+        font-size: 60px;
+        color: #faed26;
+    }
+
+    p{
+        text-align: center;
+        color: #faed26;
+    }
+
+    button{
+        margin: 0 auto;
+    display: block;
+    padding: 10px;
+    border: none;
+    background-color: #faed26;
+    color: black;
+    font-family: 'Bebas Neue', cursive;
+    }
+
+    button:hover{
+        border: 2px solid #faed26;
+        background-color: transparent;
+        color: white;
+    }
+    
+    kbd{
+        background-color: #faed26;
+        color: #46344e;
+        padding: 10px;
+    }
+</style>
+  </head>
+  <body>
+    <h1>SCORE 1000 TO WIN</h1>
+      <script src="sketch.js"></script>
+  <button onclick="goto();" style="visibility: hidden;">See your reward!</button>
+<br>
+</body></html>
